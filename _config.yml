@@ -47,3 +47,4 @@ config:
     latestUrl: https://github.com/inspircd/inspircd/releases/latest
     configGuideUrl: https://wiki.inspircd.org/Configuration
     installGuideUrl: https://wiki.inspircd.org/Installation_From_Source
+    devurl: /inspircd-test
