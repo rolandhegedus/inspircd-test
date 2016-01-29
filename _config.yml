@@ -32,6 +32,7 @@ navigation:
       target: _blank
     - title: InspIRCD API
       uri: /inspircd-test/api/2.0
+      target: _blank
     - title: Follow us on GitHub
       uri: https://github.com/inspircd
       target: _blank
