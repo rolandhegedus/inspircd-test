@@ -516,7 +516,7 @@ a {
           code {
             font-size: $fs_Xsmall;
             background: darken($gray, 20%);;
-            font-family: 'Monospace', serif;
+            font-family: 'Monospace', 'Monospaced', 'Ubuntu Mono', serif;
           }
         }
 
