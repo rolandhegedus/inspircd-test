@@ -1,0 +1,2 @@
+# inspircd-test
+test
