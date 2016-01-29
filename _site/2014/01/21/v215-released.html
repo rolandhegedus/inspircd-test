@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>InspIRCd - v2.0.15 released!</title>
+    
+    <meta charset="utf-8">
+    <meta name="description" content="InspIRCd Internet Relay Chat Daemon is a modular, high performance IRC daemon combining stability and a rich and extensive C++ API with optional features such as SSL and permanent channels.">
+    <meta name="keywords" content="inspircd, ircd, internet relay chat">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+    <link type="application/atom+xml" href="/atom.xml" rel="alternate" title="News">
+    <link type="image/x-icon" href="/assets/images/inspircd.ico" rel="shortcut icon">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/inspircd.css">
+</head>
+<body class="inspircd__site-style--red inspircd__site--inner">
+<header>
+    <div class="header__top-bar">
+        <div class="wrapper">
+            <a class="header__logo inspircd__logo inspircd__logo--small" href="/">
+                Welcome to INSPIRCD.org
+            </a>
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/releases" target="_blank">Downloads</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://wiki.inspircd.org" target="_blank">Wiki</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/issues" target="_blank">Issue Tracker</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="/api" target="">InspIRCD API</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd" target="_blank">Follow us on GitHub</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item button">
+                        <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Get InspIRCD</a>
+                    </li>
+                    
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="headline">
+    <div class="wrapper">
+        <div class="headline__greeter">
+            v2.0.15 released!
+            <h5 class="headline__greeter-subtitle">Posted by <strong>~Attila Molnar</strong> on <strong>January 21, 2014</strong></h5>
+        </div>
+    </div>
+</section>
+<section class="posts posts__inner">
+    <div class="wrapper">
+        <article class="posts__article">
+            <h3 class="posts__article-title">What's new</h3>
+            
+            <div class="posts__article-content">
+                <p>InspIRCd v2.0.15 is now available, <a href="https://github.com/inspircd/inspircd/releases">downloads are here</a>.</p>
+
+<p>This is a bugfix release addressing minor issues discovered since 2.0.14.</p>
+
+<p>One notable change is that m_svshold can now be silent, if set in the config; see updated example config for details.</p>
+
+<p>The <a href="https://github.com/inspircd/inspircd/issues?milestone=12&amp;state=closed">issue tracker</a> contains a list of the reported bugs which got fixed in this version.</p>
+
+<p>View the complete changelog <a href="https://github.com/inspircd/inspircd/compare/v2.0.14...v2.0.15">here</a>.</p>
+
+<p>Thanks to the following people for their efforts that made this release possible:</p>
+
+<p>Adam (3):</p>
+
+<ul>
+  <li>Fix issue #657, fix sending FNAME with spaces</li>
+  <li>Fix parsing ADDLINE with expiration or creation dates past ~2038 probably</li>
+  <li>Use case insensitive comparison for server names for (auto)connects, issue #662</li>
+</ul>
+
+<p>Attila Molnar (25):</p>
+
+<ul>
+  <li>Don’t CoreExport reference, fixes m_dnsbl on Windows</li>
+  <li>m_spanningtree Fix timestamp in AWAY</li>
+  <li>m_showwhois Require 2 parameters for WHOISNOTICE</li>
+  <li>m_httpd Close all open http sockets on unload</li>
+  <li>Fix ConvToStr(char)</li>
+  <li>Work around STB_GNU_UNIQUE symbols not allowing module unmap</li>
+  <li>m_spanningtree Fix nick TS desync on SVSNICK</li>
+  <li>Show +i users on a channel to opers having the channels/auspex priv who do /NAMES from outside of the chan</li>
+  <li>Fix possible use of invalid iterator on module unload</li>
+  <li>m_mlock Only deny the mlocked mode from being changed instead of denying the entire mode change if it contains a single mlocked mode</li>
+  <li>m_sajoin Send global snotice when the join happens</li>
+  <li>m_alias Fix out of bounds string access that happened with certain replace strings</li>
+  <li>m_dccallow Increase penalty for /DCCALLOW help</li>
+  <li>Use FindNickOnly() in a few more places if a local user is performing an action to prevent UID walking</li>
+  <li>m_joinflood Fix remote joins affecting local joinflood state when the channel is locked</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>m_dnsbl Don’t send snotice when the {G</td>
+          <td>K</td>
+          <td>Z}line already exists</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>m_services_account Add workaround for wrong host being displayed in numeric when cgiirc users log in using SASL</li>
+  <li>Update example configs/helpop</li>
+  <li>m_httpd Add timeout option; remove timed out connections</li>
+  <li>m_svshold Add config option to hide snotices</li>
+  <li>m_joinflood Unset the mode on unload</li>
+  <li>Increase the penalty for a few core commands</li>
+  <li>m_httpd_stats Be more conservative when escaping data</li>
+  <li>Bump API version because of 3f4d54eb031f1cd6b016dfe1f768ed86303e3856</li>
+  <li>Release 2.0.15</li>
+</ul>
+
+<p>ChrisTX (3):</p>
+
+<ul>
+  <li>Improve support for rarely used compilers, EKOPath in this case.</li>
+  <li>Fix a crash when running as systemd service</li>
+  <li>Fix a shadow warning created by ConfigTag::create</li>
+</ul>
+
+<p>Daniel Vassdal (5):</p>
+
+<ul>
+  <li>Fix remote /MODULES bug</li>
+  <li>Fix ACCEPT propagation bug when it got a nick prefixed with +</li>
+  <li>Fix m_override refusing to override modes if the user holds halfop or higher in the channel</li>
+  <li>Allow ranges beginning with 0 in m_channames</li>
+  <li>Fix OOB error in sa2cidr()</li>
+</ul>
+
+<p>Mantas Mikulėnas (3):</p>
+
+<ul>
+  <li>Handle SASL failures during SASL_INIT (wrong mechanism, etc.)</li>
+  <li>Support SASL messages other than ‘C’ and ‘D’</li>
+  <li>Use standard example addresses in configs</li>
+</ul>
+
+<p>Peter Powell (5):</p>
+
+<ul>
+  <li>Improve error reporting for &lt;security:runas{user,group}&gt;.</li>
+  <li>Fix m_silence looking for maxentries in &lt;showwhois&gt; instead of &lt;silence&gt;.</li>
+  <li>Fix various problems with ModuleManager.</li>
+  <li>Fix the HELPOP database being destroyed when a rehash fails.</li>
+  <li>Fix some logically dead code which was found by Coverity.</li>
+</ul>
+
+            </div>
+            <div class="clear"></div>
+        </article>
+        <aside class="sidebar">
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Top Contributors</h3>
+                <ul class="sidebar__list">
+                    
+                        <li>No contributors defined</li>
+                    
+                </ul>
+            </section>
+            
+            <section class="sidebar__section">
+                <div class="button button__full-width">
+                    <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
+                </div>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <section class="footer__left-col">
+            <div class="inspircd__logo inspircd__logo--small inspircd__logo--light"></div>
+            <p class="copyright">InspIRCd &copy;2002-2016 InspIRCd Development Team</p>
+            <p class="license">Licensed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public License 2.0</a></p>
+            <p class="design-copyright">Website design and template by Roland Hegedus &copy;2015-2016</p>
+        </section>
+        <section class="footer__right-col">
+            <p class="version">Current stable version v2.0.20</p>
+            <p class="follow_us">Follow us on <a href="/atom.xml" title="Follow us on RSS" class="rss-logo tpartylogo">rss</a> and<a href="https://github.com/inspircd" class="github-logo tpartylogo" title="Follow us on GitHub">github</a></p>
+        </section>
+        <div class="clear"></div>
+    </div>
+</footer>
+</body>
+</html>

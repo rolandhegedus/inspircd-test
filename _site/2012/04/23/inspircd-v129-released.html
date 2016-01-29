@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>InspIRCd - InspIRCd v1.2.9 released</title>
+    
+    <meta charset="utf-8">
+    <meta name="description" content="InspIRCd Internet Relay Chat Daemon is a modular, high performance IRC daemon combining stability and a rich and extensive C++ API with optional features such as SSL and permanent channels.">
+    <meta name="keywords" content="inspircd, ircd, internet relay chat">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+    <link type="application/atom+xml" href="/atom.xml" rel="alternate" title="News">
+    <link type="image/x-icon" href="/assets/images/inspircd.ico" rel="shortcut icon">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/inspircd.css">
+</head>
+<body class="inspircd__site-style--red inspircd__site--inner">
+<header>
+    <div class="header__top-bar">
+        <div class="wrapper">
+            <a class="header__logo inspircd__logo inspircd__logo--small" href="/">
+                Welcome to INSPIRCD.org
+            </a>
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/releases" target="_blank">Downloads</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://wiki.inspircd.org" target="_blank">Wiki</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/issues" target="_blank">Issue Tracker</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="/api" target="">InspIRCD API</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd" target="_blank">Follow us on GitHub</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item button">
+                        <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Get InspIRCD</a>
+                    </li>
+                    
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="headline">
+    <div class="wrapper">
+        <div class="headline__greeter">
+            InspIRCd v1.2.9 released
+            <h5 class="headline__greeter-subtitle">Posted by <strong>~w00t</strong> on <strong>April 23, 2012</strong></h5>
+        </div>
+    </div>
+</section>
+<section class="posts posts__inner">
+    <div class="wrapper">
+        <article class="posts__article">
+            <h3 class="posts__article-title">What's new</h3>
+            
+            <div class="posts__article-content">
+                <p>Not much more to say here. Downloads are available from the usual location. A
+big thanks to Robby and Attila for their contributions to the release, thanks to
+other authors also.</p>
+
+<p>Users of the 1.2 series are suggested to upgrade.</p>
+
+<p>A summary of the changes since v1.2.9rc1 may be found below.</p>
+
+<p>Guillaume Delacour (1):</p>
+
+<ul>
+  <li>Fix compilation with GCC 4.7.</li>
+</ul>
+
+<p>Robby- (17):</p>
+
+<ul>
+  <li>Backported Shawn’s NoSnoticeStack code from insp21</li>
+  <li>Replace [cC]olour with [cC]olor</li>
+  <li>/STATS: Update the helpop stats-characters aswell as give the ziplink and shun modules their own stats-characters so they actually work and don’t collide with others (shun was for example overriding svshold</li>
+  <li>Add some more info about logging types and levels to the config file, correct a channels debug type and make a MISC message fall under CULLLIST instead since it is related to the other Cullstuff (MISC was o</li>
+  <li>Some minor corrections and tab removals</li>
+  <li><em>cough</em></li>
+  <li>shun: Correct stats character in the notice too</li>
+  <li>shun: stats functionality is implemented, this may be removed</li>
+  <li>Make m_shun work on aliases</li>
+  <li>/STATS: updates</li>
+  <li>Checking E-lines once is enough</li>
+  <li>Update helpop config file name and remove some spaces</li>
+  <li>Add an /HELP alias for /HELPOP</li>
+  <li>Replace copyright headers with headers granting specific authors copyright</li>
+  <li>Headers: update remaining scripts too</li>
+  <li>resource.rc: update copyright to 2012</li>
+  <li>Headers: update the modules Makefile header that is generated by configure</li>
+</ul>
+
+<p>Robin Burchell (2):</p>
+
+<ul>
+  <li>remove trailing whitespace</li>
+  <li>v1.2.9 final</li>
+</ul>
+
+<p>Shawn Smith (2):</p>
+
+<ul>
+  <li>Fixes issue #39 reported by <a href="https://github.com/attilamolnar" class="user-mention"><a href="https://github.com/attilamolnar" class="user-mention">@attilamolnar</a></a>.     Thanks to <a href="https://github.com/attilamolnar" class="user-mention"><a href="https://github.com/attilamolnar" class="user-mention">@attilamolnar</a></a> for supplying the code.</li>
+  <li>This addresses the memory leak issues reported in issue #38.</li>
+</ul>
+
+<p>William Pitcock (1):</p>
+
+<ul>
+  <li>Explicitly shut down stdio’s stdin/stdout/stderr.</li>
+</ul>
+
+<p>attilamolnar (5):</p>
+
+<ul>
+  <li>Fix double free (in 1.2 the core deletes the commands upon module unload not the module)</li>
+  <li>Fixes for OnDelLine checking hardcoded line type ‘K’ instead of IsBurstable() and not obeying loopCall, thus broadcasting a redundant DELLINE for every DELLINE received.</li>
+  <li>Fix MaxModes check when bursting bans for a channel to compare the number of bans not the length of the parameters it queued for sending.     This has caused nearly every ban to be sent in a seperate FMODE.</li>
+  <li>Fix issue #18 reported by <a href="https://github.com/int-" class="user-mention"><a href="https://github.com/int-" class="user-mention">@int-</a></a> (remote restriction on /stats)</li>
+  <li>Fix crash in m_rline     m_rline only called UseInterface() in the constructor, so when there was no regex engine loaded UseInterface() did nothing.     If the specifed regex engine was loaded later on this</li>
+</ul>
+
+<p>edem (1):</p>
+
+<ul>
+  <li>Revert “m_ssl_gnutls: remove STARTTLS support”</li>
+</ul>
+
+            </div>
+            <div class="clear"></div>
+        </article>
+        <aside class="sidebar">
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Top Contributors</h3>
+                <ul class="sidebar__list">
+                    
+                        <li>No contributors defined</li>
+                    
+                </ul>
+            </section>
+            
+            <section class="sidebar__section">
+                <div class="button button__full-width">
+                    <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
+                </div>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <section class="footer__left-col">
+            <div class="inspircd__logo inspircd__logo--small inspircd__logo--light"></div>
+            <p class="copyright">InspIRCd &copy;2002-2016 InspIRCd Development Team</p>
+            <p class="license">Licensed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public License 2.0</a></p>
+            <p class="design-copyright">Website design and template by Roland Hegedus &copy;2015-2016</p>
+        </section>
+        <section class="footer__right-col">
+            <p class="version">Current stable version v2.0.20</p>
+            <p class="follow_us">Follow us on <a href="/atom.xml" title="Follow us on RSS" class="rss-logo tpartylogo">rss</a> and<a href="https://github.com/inspircd" class="github-logo tpartylogo" title="Follow us on GitHub">github</a></p>
+        </section>
+        <div class="clear"></div>
+    </div>
+</footer>
+</body>
+</html>

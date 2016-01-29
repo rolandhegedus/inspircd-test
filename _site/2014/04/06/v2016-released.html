@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>InspIRCd - v2.0.16 released!</title>
+    
+    <meta charset="utf-8">
+    <meta name="description" content="InspIRCd Internet Relay Chat Daemon is a modular, high performance IRC daemon combining stability and a rich and extensive C++ API with optional features such as SSL and permanent channels.">
+    <meta name="keywords" content="inspircd, ircd, internet relay chat">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+    <link type="application/atom+xml" href="/atom.xml" rel="alternate" title="News">
+    <link type="image/x-icon" href="/assets/images/inspircd.ico" rel="shortcut icon">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/inspircd.css">
+</head>
+<body class="inspircd__site-style--red inspircd__site--inner">
+<header>
+    <div class="header__top-bar">
+        <div class="wrapper">
+            <a class="header__logo inspircd__logo inspircd__logo--small" href="/">
+                Welcome to INSPIRCD.org
+            </a>
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/releases" target="_blank">Downloads</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://wiki.inspircd.org" target="_blank">Wiki</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/issues" target="_blank">Issue Tracker</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="/api" target="">InspIRCD API</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd" target="_blank">Follow us on GitHub</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item button">
+                        <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Get InspIRCD</a>
+                    </li>
+                    
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="headline">
+    <div class="wrapper">
+        <div class="headline__greeter">
+            v2.0.16 released!
+            <h5 class="headline__greeter-subtitle">Posted by <strong>~Attila Molnar</strong> on <strong>April 06, 2014</strong></h5>
+        </div>
+    </div>
+</section>
+<section class="posts posts__inner">
+    <div class="wrapper">
+        <article class="posts__article">
+            <h3 class="posts__article-title">What's new</h3>
+            
+            <div class="posts__article-content">
+                <p>InspIRCd v2.0.16 is now available, <a href="https://github.com/inspircd/inspircd/releases">downloads are here</a>.</p>
+
+<p>This is a bugfix-only release, containing several stability related and correctness improvements.
+An issue has also been fixed that prevented clients using NSS for SSL/TLS such as Pidgin (via libpurple), ChatZilla, Instantbird, etc. from reconnecting to a server using OpenSSL after disconnection.
+See this <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=858394">bug report</a> for more information.</p>
+
+<p>Upgrading is strongly recommended.</p>
+
+<p>The example configuration and the helpop text received a huge update as well, hopefully the new explanations will make things easier to understand.
+Let us know if you find something in the documentation that is unclear to you.</p>
+
+<p>The <a href="https://github.com/inspircd/inspircd/issues?milestone=13&amp;state=closed">issue tracker</a> contains a list of the reported bugs which got fixed in this version.
+View the complete changelog <a href="https://github.com/inspircd/inspircd/compare/v2.0.15...v2.0.16">here</a>.</p>
+
+<p>Thanks to the following people for their efforts that made this release possible:</p>
+
+<p>Adam (3):</p>
+
+<ul>
+  <li>Set a session id on our server ssl context in m_ssl_openssl. It is required for some clients which try to restore SSL sessions.</li>
+  <li>Fix new file descriptor debug log message in socketengine_poll to show the correct events</li>
+  <li>Fix /who on opers incorrectly showing +i opers to users without the privilege to see them</li>
+</ul>
+
+<p>Attila Molnar (22):</p>
+
+<ul>
+  <li>m_ssl_openssl Fix memory leaks on /rehash ssl, unload and in VerifyCertificate()</li>
+  <li>m_banredirect Fix typo in a message (transfered -&gt; transferred)</li>
+  <li>socketengine_epoll Initialize CurrentSetSize (only used by m_httpd_stats)</li>
+  <li>socketengine_select Reset the values in the timeval struct on *nix before select()</li>
+  <li>Fix NULL dereference on rehash when there is a fatal error in the configuration of connect classes</li>
+  <li>m_spanningtree Don’t send snotices to servers about remote servers splitting</li>
+  <li>m_spanningtree Do pointer comparison before deleting one of the pointers in TreeSocket::Squit()</li>
+  <li>Improve detection for non-cidr masks to prevent unwanted matches</li>
+  <li>cmd_names Allow opers having the channels/auspex priv to view the NAMES list of +s channels from outside</li>
+  <li>Backport “Refactor Channel::UserList() to use std::string”</li>
+  <li>Fix NAMES list getting truncated on servers having an excessively long server name</li>
+  <li>m_operprefix Don’t set +y on the oper if hideoper is being unset due to deopering</li>
+  <li>m_httpd Fix typo noticed by @SaberUK</li>
+  <li>m_globalload Don’t pass a callback to ModuleManager::Reload() if reloading m_globalload</li>
+  <li>m_watch Validate targ before use, noticed while rewriting m_watch for 2.2</li>
+  <li>Major example configuration and helpop update</li>
+  <li>Fix typos and update text in the configure script</li>
+  <li>Add REG_ALL checks to treat unregistered users as nonexistent in more cases</li>
+  <li>Fix snotice about disabled command usage being sent to the wrong snomask</li>
+  <li>Fix typo in helpop-full that prevented it from loading and other minor helpop issues</li>
+  <li>Fix IPv6 address handling in 6aaf7047297b739377e7d509cb914f32447fb281</li>
+  <li>Release 2.0.16</li>
+</ul>
+
+<p>Peter Powell (2):</p>
+
+<ul>
+  <li>Fix various problems detected by Clang 3.4.</li>
+  <li>Fix Solaris not being able to find modules without pkg-config.</li>
+</ul>
+
+<p>Daniel Vassdal (1):</p>
+
+<ul>
+  <li>Fix build problem on Solaris</li>
+</ul>
+
+            </div>
+            <div class="clear"></div>
+        </article>
+        <aside class="sidebar">
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Top Contributors</h3>
+                <ul class="sidebar__list">
+                    
+                        <li>No contributors defined</li>
+                    
+                </ul>
+            </section>
+            
+            <section class="sidebar__section">
+                <div class="button button__full-width">
+                    <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
+                </div>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <section class="footer__left-col">
+            <div class="inspircd__logo inspircd__logo--small inspircd__logo--light"></div>
+            <p class="copyright">InspIRCd &copy;2002-2016 InspIRCd Development Team</p>
+            <p class="license">Licensed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public License 2.0</a></p>
+            <p class="design-copyright">Website design and template by Roland Hegedus &copy;2015-2016</p>
+        </section>
+        <section class="footer__right-col">
+            <p class="version">Current stable version v2.0.20</p>
+            <p class="follow_us">Follow us on <a href="/atom.xml" title="Follow us on RSS" class="rss-logo tpartylogo">rss</a> and<a href="https://github.com/inspircd" class="github-logo tpartylogo" title="Follow us on GitHub">github</a></p>
+        </section>
+        <div class="clear"></div>
+    </div>
+</footer>
+</body>
+</html>

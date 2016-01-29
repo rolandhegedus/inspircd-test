@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>InspIRCd - v2.0.11 released!</title>
+    
+    <meta charset="utf-8">
+    <meta name="description" content="InspIRCd Internet Relay Chat Daemon is a modular, high performance IRC daemon combining stability and a rich and extensive C++ API with optional features such as SSL and permanent channels.">
+    <meta name="keywords" content="inspircd, ircd, internet relay chat">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+    <link type="application/atom+xml" href="/atom.xml" rel="alternate" title="News">
+    <link type="image/x-icon" href="/assets/images/inspircd.ico" rel="shortcut icon">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/inspircd.css">
+</head>
+<body class="inspircd__site-style--red inspircd__site--inner">
+<header>
+    <div class="header__top-bar">
+        <div class="wrapper">
+            <a class="header__logo inspircd__logo inspircd__logo--small" href="/">
+                Welcome to INSPIRCD.org
+            </a>
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/releases" target="_blank">Downloads</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://wiki.inspircd.org" target="_blank">Wiki</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd/inspircd/issues" target="_blank">Issue Tracker</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="/api" target="">InspIRCD API</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item">
+                        <a href="https://github.com/inspircd" target="_blank">Follow us on GitHub</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="header__navigation-list-item button">
+                        <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Get InspIRCD</a>
+                    </li>
+                    
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="headline">
+    <div class="wrapper">
+        <div class="headline__greeter">
+            v2.0.11 released!
+            <h5 class="headline__greeter-subtitle">Posted by <strong>~Attila Molnar</strong> on <strong>March 29, 2013</strong></h5>
+        </div>
+    </div>
+</section>
+<section class="posts posts__inner">
+    <div class="wrapper">
+        <article class="posts__article">
+            <h3 class="posts__article-title">What's new</h3>
+            
+            <div class="posts__article-content">
+                <p>InspIRCd v2.0.11 is now available, <a href="https://github.com/inspircd/inspircd/releases">downloads can be found here</a>.</p>
+
+<p>This is mainly a bugfix-only release, however the Windows version does contain
+major improvements: a new build system by Adam, and a brand new services
+wrapper by ChrisTX.</p>
+
+<p>This release also solves build problems on OpenBSD and Solaris.</p>
+
+<p>For a list of fixed issues and improvements see the <a href="https://github.com/inspircd/inspircd/issues?milestone=8&amp;state=closed">bug tracker</a>.</p>
+
+<p>A shortlog since the last release:</p>
+
+<p>Adam (4):</p>
+
+<ul>
+  <li>Fixed m_ssl_gnutls build on Windows; gnutls.h uses ssize_t which is defined in gcrypt.h</li>
+  <li>Replace Windows build system and installer with cmake</li>
+  <li>Link win32_memory too inspircd too</li>
+  <li>win: Made config, modules, data, and log paths configurable.</li>
+</ul>
+
+<p>ChrisTX (1):</p>
+
+<ul>
+  <li>Win32: Rewrite the service wrapper</li>
+</ul>
+
+<p>Daniel Vassdal (1):</p>
+
+<ul>
+  <li>Added support for EXTERNAL</li>
+</ul>
+
+<p>Peter Powell (14):</p>
+
+<ul>
+  <li>Fix property list arguments.</li>
+  <li>OpenBSD does not have KERN_MAXFILESPERPROC.</li>
+  <li>Fix the poll socket engine on BSD’s other than FreeBSD.</li>
+  <li>Include &lt;list&gt; in base.h to prevent build errors on OpenBSD.</li>
+  <li>Replace a GNUmake idiom with the portable equivalent.</li>
+  <li>Fix warning: “const type qualifier on return type has no effect”.</li>
+  <li>Fix OpenSSL detection on distributions which modify the version number.</li>
+  <li>Use GNU install on Solaris.</li>
+  <li>Use a better server name in m_httpd.</li>
+  <li>Use the preprocessor to detect whether hash_map is available.</li>
+  <li>Remove unused variables detected by Clang 4.2.</li>
+  <li>Fix multiple escape bugs in m_httpd_stats.</li>
+  <li>Reorganise configuration files</li>
+  <li>Update Doxyfile for the latest version of Doxygen.</li>
+</ul>
+
+<p>Robby- (1):</p>
+
+<ul>
+  <li>cmode_b: Correction to the maxbans conditional     It was possible to set one more ban beyond the configured limit.</li>
+</ul>
+
+<p>ShutterQuick (1):</p>
+
+<ul>
+  <li>Modified m_timedbans to behave more like setting mode +b manually.     It now accepts extbans.</li>
+</ul>
+
+<p>attilamolnar (41):</p>
+
+<ul>
+  <li>Fix errors in socketengine_ports so it compiles on Solaris</li>
+  <li>m_ldapoper Fix typo spotted by <a href="https://github.com/lordsith49" class="user-mention"><a href="https://github.com/lordsith49" class="user-mention">@lordsith49</a></a></li>
+  <li>m_banredirect Remove unnecessary hooks, cleanup</li>
+  <li>m_banredirect Deny the join to the redirect channel if it has a redirecting ban set that matches the user</li>
+  <li>m_messageflood Ask to be the last to handle OnUserPreMessage/OnUserPreNotice</li>
+  <li>m_maphide Ignore unregistered users</li>
+  <li>m_spanningtree Fix rare desync when a KILL crosses a message that has the killed user’s prefix and modifies global state</li>
+  <li>m_chanhistory Fix durations containing ‘S’ being rejected</li>
+  <li>m_ssl_gnutls Fix build with GnuTLS 1.x</li>
+  <li>Fix exactly &lt;limits:maxchan&gt; long channel names being truncated</li>
+  <li>cmd_invite Correct error message when the user has no privs to invite and no halfop prefix is available</li>
+  <li>cmd_invite Send invite announcements to halfops and higher when &lt;security:announceinvites&gt; is ‘dynamic’ regardless of the channel being +i or not</li>
+  <li>m_ssl_gnutls Fix null pointer dereference in case gnutls_xxx_get_name() returns NULL</li>
+  <li>cmd_lusers Convert to a module</li>
+  <li>cmd_lusers Refresh max local/global user counters after a user connects</li>
+  <li>cmd_lusers Use of size() instead of counting elements</li>
+  <li>cmd_lusers Be smart and know how many invisible users are there without iterating the userlist</li>
+  <li>m_dnsbl Fix connecting users timeouting when a dnsbl result is in the dns cache</li>
+  <li>Stop user initialization when the user is marked as quitting after OnSetUserIP</li>
+  <li>Either store the Resolver in DNS::AddResolverClass() or delete it before returning</li>
+  <li>Fix m_dnsbl not checking cgiirc users when the cgiirc address is elined</li>
+  <li>m_connectban Switch to OnSetUserIP hook to handle cgiirc users properly, ignore e-lined users</li>
+  <li>Remove dead code from DNS</li>
+  <li>m_ssl_openssl Make it clear that a CA file is not mandatory</li>
+  <li>m_connflood Ignore e-lined users</li>
+  <li>m_permchannels Load channels from the config only at module load time and only when there are no linked servers to avoid desync</li>
+  <li>m_spanningtree Fix incoming channel modes being lost for 0-user permanent channels on the losing side of a netmerge</li>
+  <li>Add support for mandatory tags in included config files</li>
+  <li>Fix infinite loop when all DNS request slots are in use</li>
+  <li>m_timedbans Notice halfops and above when a timed ban is placed</li>
+  <li>Initialize the FakeClient pointer in InspIRCd::InspIRCd()</li>
+  <li>Accept -c as a command line argument (equivalent to –config)</li>
+  <li>m_xline_db Major enhancements</li>
+  <li>m_xline_db Fix pointless excessive stack usage in ReadDatabase()</li>
+  <li>cmd_lusers Fix miscounting</li>
+  <li>Fix premature overwriting of OLDTIME that resulted in time drifts never being detected</li>
+  <li>m_ldapoper Fix memory leak</li>
+  <li>m_ldapoper Make the module actually work</li>
+  <li>Update doc and fix the description of m_allowinvite</li>
+  <li>cmd_kill Send snotice to servers when both the oper and the victim are on the same server</li>
+  <li>Release 2.0.11</li>
+</ul>
+
+            </div>
+            <div class="clear"></div>
+        </article>
+        <aside class="sidebar">
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Top Contributors</h3>
+                <ul class="sidebar__list">
+                    
+                        <li>No contributors defined</li>
+                    
+                </ul>
+            </section>
+            
+            <section class="sidebar__section">
+                <div class="button button__full-width">
+                    <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
+                </div>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <section class="footer__left-col">
+            <div class="inspircd__logo inspircd__logo--small inspircd__logo--light"></div>
+            <p class="copyright">InspIRCd &copy;2002-2016 InspIRCd Development Team</p>
+            <p class="license">Licensed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GNU General Public License 2.0</a></p>
+            <p class="design-copyright">Website design and template by Roland Hegedus &copy;2015-2016</p>
+        </section>
+        <section class="footer__right-col">
+            <p class="version">Current stable version v2.0.20</p>
+            <p class="follow_us">Follow us on <a href="/atom.xml" title="Follow us on RSS" class="rss-logo tpartylogo">rss</a> and<a href="https://github.com/inspircd" class="github-logo tpartylogo" title="Follow us on GitHub">github</a></p>
+        </section>
+        <div class="clear"></div>
+    </div>
+</footer>
+</body>
+</html>

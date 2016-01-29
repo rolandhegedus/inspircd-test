@@ -1,0 +1,58 @@
+---
+layout: inner
+---
+<section class="headline">
+    <div class="wrapper">
+        <div class="headline__greeter">
+            {{ page.title }}
+            <h5 class="headline__greeter-subtitle">Posted by <strong>~{{ page.author }}</strong> on <strong>{{ page.date | date: '%B %d, %Y' }}</strong></h5>
+        </div>
+    </div>
+</section>
+<section class="posts posts__inner">
+    <div class="wrapper">
+        <article class="posts__article">
+            <h3 class="posts__article-title">What's new</h3>
+            {% if page.important %}
+            <p class="posts__article-important">
+                <span class="posts__article-important--title">Important notice</span>
+                {{ page.important }}
+            </p>
+            {% endif %}
+            <div class="posts__article-content">
+                {{ page.content | markdownify }}
+            </div>
+            <div class="clear"></div>
+        </article>
+        <aside class="sidebar">
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Top Contributors</h3>
+                <ul class="sidebar__list">
+                    {% if page.contributors %}
+                        {% for contributor in page.contributors %}
+                            <li>{{ contributor }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No contributors defined</li>
+                    {% endif %}
+                </ul>
+            </section>
+            {% if page.features %}
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Key features</h3>
+                <ul class="sidebar__list">
+                    {% for feature in page.features %}
+                        <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+            <section class="sidebar__section">
+                <div class="button button__full-width">
+                    <a href="{{ site.config.latestUrl }}" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
+                </div>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </div>
+</section>

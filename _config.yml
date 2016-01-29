@@ -1,0 +1,49 @@
+exclude: [ 'LICENSE.txt', 'Rakefile' ]
+highlighter: pygments
+markdown: kramdown
+paginate: 10
+permalink: /:year/:month/:day/:title.html
+
+gems:
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-paginate
+
+info:
+    title: InspIRCd
+    slogan: The Stable, High-Performance and Modular IRCd
+    uri: http://www.inspircd.org
+
+meta:
+    description: InspIRCd Internet Relay Chat Daemon is a modular, high performance IRC daemon combining stability and a rich and extensive C++ API with optional features such as SSL and permanent channels.
+    keywords: inspircd, ircd, internet relay chat
+
+navigation:
+    - title: Home
+      uri: /
+    - title: Downloads
+      uri: https://github.com/inspircd/inspircd/releases
+      target: _blank
+    - title: Wiki
+      uri: https://wiki.inspircd.org
+      target: _blank
+    - title: Issue Tracker
+      uri: https://github.com/inspircd/inspircd/issues
+      target: _blank
+    - title: InspIRCD API
+      uri: /api
+    - title: Follow us on GitHub
+      uri: https://github.com/inspircd
+      target: _blank
+    - title: Get InspIRCD
+      uri: https://github.com/inspircd/inspircd/releases/latest
+      target: _blank
+
+config:
+# theme: red {default} | green | blue
+    theme: red
+    currentVersion: 2.0.20
+    gitHubUrl: https://github.com/inspircd
+    latestUrl: https://github.com/inspircd/inspircd/releases/latest
+    configGuideUrl: https://wiki.inspircd.org/Configuration
+    installGuideUrl: https://wiki.inspircd.org/Installation_From_Source

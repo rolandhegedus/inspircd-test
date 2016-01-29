@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{% for post in paginator.posts %}
+    {% if post.featured == true %}
+        <article class="posts__article posts__article-important">
+    {% else %}
+        <article class="posts__article">
+    {% endif %}
+        <h3 class="posts__article-title">{{ post.title }}</h3>
+        <h5 class="posts__article-subtitle">Posted by <strong>~{{ post.author }}</strong> on <strong>{{ post.date | date: '%B %d, %Y' }}</strong></h5>
+        <p class="posts__article-excerpt">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis hendrerit molestie nunc vel posuere. Fusce dignissim condimentum urna quis sagittis. Nullam quis dui cursus, tempor sem at, cursus massa. In accumsan nisl nec suscipit tempus. Sed sapien tellus, laoreet sed justo nec, aliquet vulputate arcu. Integer sapien enim, consectetur sed urna ac, congue sodales tellus. Cras ultricies, arcu eu dapibus molestie, neque nisl blandit odio, vitae tincidunt metus massa sed justo. Nunc congue vehicula auctor. Aenean sed turpis et nibh imperdiet vehicula efficitur eu augue. Nullam convallis turpis dolor, at aliquam quam condimentum eget. <br/> <br/> Nullam eros metus, semper et interdum vel, dictum hendrerit massa.
+        </p>
+        <div class="button accent float--right">
+            <a href="{{ post.url }}" title="Read more about this article">Read more</a>
+        </div>
+        <div class="clear"></div>
+    </article>
+{% endfor %}
