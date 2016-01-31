@@ -1,2 +1,1 @@
-# inspircd-test
-test
+Site is in the gh-pages branch
