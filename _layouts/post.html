@@ -33,10 +33,20 @@ layout: inner
                             <li>{{ contributor }}</li>
                         {% endfor %}
                     {% else %}
-                        <li>No contributors defined</li>
+                        <li>{{ page.author }}</li>
                     {% endif %}
                 </ul>
             </section>
+            {% if page.thanksto %}
+            <section class="sidebar__section">
+                <h3 class="sidebar__section-title">Special thanks to</h3>
+                <ul class="sidebar__list">
+                    {% for user in page.thanksto %}
+                    <li>{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
             {% if page.features %}
             <section class="sidebar__section">
                 <h3 class="sidebar__section-title">Key features</h3>
