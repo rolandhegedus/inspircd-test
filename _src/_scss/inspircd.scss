@@ -342,6 +342,13 @@ a {
           }
         }
       }
+
+      a {
+        color: $light!important;
+        &:hover {
+          color: transparentize($light, .4);
+        }
+      }
     }
 
     &:nth-child(even) {
