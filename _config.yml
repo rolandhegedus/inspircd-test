@@ -3,6 +3,7 @@ highlighter: pygments
 markdown: kramdown
 paginate: 10
 permalink: /:year/:month/:day/:title.html
+excerpt_separator: <!--more-->
 
 gems:
   - jekyll-mentions
