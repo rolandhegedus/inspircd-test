@@ -12,10 +12,19 @@ layout: inner
 <section class="posts posts__inner">
     <div class="wrapper">
         <article class="posts__article">
-            <h3 class="posts__article-title">{{ page.subtitle }}</h3>
+            {% if page.subtitle %}
+                <h3 class="posts__article-title">{{ page.subtitle }}</h3>
+            {% else %}
+                <h3 class="posts__article-title">What's new</h3>
+            {% endif %}
+
             {% if page.important %}
             <p class="posts__article-important">
-                <span class="posts__article-important--title">{{ page.importanttitle }}</span>
+                {% if page.importanttitle %}
+                    <span class="posts__article-important--title">{{ page.importanttitle }}</span>
+                {% else %}
+                    <span class="posts__article-important--title">Important notice</span>
+                {% endif %}
                 {{ page.important }}
             </p>
             {% endif %}
