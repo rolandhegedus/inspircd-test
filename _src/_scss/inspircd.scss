@@ -524,8 +524,8 @@ a {
 
           code {
             font-size: $fs_Xsmall;
-            background: darken($gray, 20%);;
-            font-family: 'Monospace', 'Monospaced', 'Ubuntu Mono', serif;
+            background: darken($gray, 10%);
+            font-family: 'Courier New', Courier, 'Monospace', 'Monospaced', 'Ubuntu Mono', serif;
           }
         }
 
@@ -579,5 +579,20 @@ a {
         margin-bottom: 0;
       }
     }
+  }
+}
+
+pre {
+  font-family: 'Courier New', Courier, 'Monospace', 'Monospaced', 'Ubuntu Mono', serif !important;
+  tab-size: 4;
+  white-space: pre;
+  margin: 1em 0 1em;
+
+  code {
+    tab-size: 4;
+    white-space: pre;
+    font-size: $fs_Xsmall;
+    background: $gray;
+    font-family: 'Courier New', Courier, 'Monospace', 'Monospaced', 'Ubuntu Mono', serif;
   }
 }
