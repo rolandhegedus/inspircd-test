@@ -333,10 +333,12 @@ a {
 
       .button {
         a {
+          border-color: $light!important;
+          color: $light!important;
           &:hover {
             background: $light;
             color: $accent!important;
-            border-color: $light;
+            border-color: $light!important;
           }
         }
       }
@@ -571,6 +573,4 @@ a {
       }
     }
   }
-
-
 }
