@@ -346,7 +346,7 @@ a {
       a {
         color: $light!important;
         &:hover {
-          color: transparentize($light, .4);
+          color: transparentize($light, .5) !important;
         }
       }
     }
