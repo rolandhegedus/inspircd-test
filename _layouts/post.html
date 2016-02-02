@@ -34,20 +34,23 @@ layout: inner
             </div>
             <div class="clear"></div>
         </article>
+
+        <!-- sidebar -->
         <aside class="sidebar">
+            {% if page.contributors %}
+            <!-- contributors -->
             <section class="sidebar__section">
                 <h3 class="sidebar__section-title">Top Contributors</h3>
                 <ul class="sidebar__list">
-                    {% if page.contributors %}
-                        {% for contributor in page.contributors %}
-                            <li>{{ contributor }}</li>
-                        {% endfor %}
-                    {% else %}
-                        <li>{{ page.author }}</li>
-                    {% endif %}
+                    {% for contributor in page.contributors %}
+                        <li>{{ contributor }}</li>
+                    {% endfor %}
                 </ul>
             </section>
+            {% endif %}
+
             {% if page.thanksto %}
+            <!-- special thanks -->
             <section class="sidebar__section">
                 <h3 class="sidebar__section-title">Special thanks to</h3>
                 <ul class="sidebar__list">
@@ -57,7 +60,9 @@ layout: inner
                 </ul>
             </section>
             {% endif %}
+
             {% if page.features %}
+            <!-- features -->
             <section class="sidebar__section">
                 <h3 class="sidebar__section-title">Key features</h3>
                 <ul class="sidebar__list">
@@ -67,6 +72,8 @@ layout: inner
                 </ul>
             </section>
             {% endif %}
+
+            <!-- download -->
             <section class="sidebar__section">
                 <div class="button button__full-width">
                     <a href="{{ site.config.latestUrl }}" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
