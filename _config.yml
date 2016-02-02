@@ -5,6 +5,10 @@ paginate: 10
 permalink: /:year/:month/:day/:title.html
 excerpt_separator: <!--more-->
 
+sass:
+    sass_dir: assets/css
+    style: compressed
+
 gems:
   - jekyll-mentions
   - jekyll-sitemap
