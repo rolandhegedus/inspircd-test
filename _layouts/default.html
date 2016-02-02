@@ -17,7 +17,11 @@
     <script type="text/javascript" src="{{ site.config.devurl}}/assets/scripts/libs/jquery.js"></script>
     <script type="text/javascript" src="{{ site.config.devurl}}/assets/scripts/inspircd.js"></script>
 </head>
+{% if site.config.theme %}
 <body class="inspircd__site-style--{{ site.config.theme }}">
+{% else %}
+<body class="inspircd__site-style--red">
+{% endif %}
 <header>
     <div class="header__top-bar">
         <div class="wrapper">
