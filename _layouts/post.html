@@ -75,7 +75,11 @@ layout: inner
 
             <!-- download -->
             <section class="sidebar__section">
-                <h3 class="sidebar__section-title">Get InspIRCd</h3>
+                {% if page.features == null and page.thanksto == null and page.contributors == null %}
+                <div class="button button__full-width nomargin">
+                {% else %}
+                <div class="button button__full-width">
+                {% endif %}
                 <div class="button button__full-width">
                     <a href="{{ site.config.latestUrl }}" target="_blank" title="Download InspIRCD">Download InspIrcd</a>
                 </div>
