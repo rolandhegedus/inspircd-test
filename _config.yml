@@ -36,7 +36,7 @@ navigation:
       uri: https://github.com/inspircd/inspircd/issues
       target: _blank
     - title: InspIRCD API
-      uri: /api/2.0
+      uri: api/2.0
       target: _blank
     - title: Follow us on GitHub
       uri: https://github.com/inspircd
