@@ -1,5 +1,5 @@
 exclude: [ 'LICENSE.txt', 'Rakefile' ]
-highlighter: pygments
+highlighter: rouge
 markdown: kramdown
 paginate: 10
 permalink: /:year/:month/:day/:title.html
